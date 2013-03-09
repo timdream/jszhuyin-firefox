@@ -1,0 +1,3 @@
+[submodule "data/jszhuyin"]
+	path = data/jszhuyin
+	url = git://github.com/timdream/jszhuyin.git
