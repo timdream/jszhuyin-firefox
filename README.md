@@ -21,8 +21,6 @@ Refer to [add-on SDK documentation](https://addons.mozilla.org/en-US/developers/
 
 ## Usage
 
-(**experimental**, until I find a way to better integrate the IME with Firefox)
-
-Focus on an input field first, and press **Ctrl+Alt+1** (**Command+Option+1** on Mac) to invoke IME panel. Type Zhuyin symbols to start composing Chinese characters, navigate through candidates with arrow keys. Select a candidate or press *Enter* to commit text.
-
-The IME panel will not go away unless you press *Escape*.
+Press **Ctrl+Alt+1** (**Command+Option+1** on Mac) to enter IME mode, press again to stop.
+Type Zhuyin symbols to start composing Chinese characters, navigate through candidates with arrow keys.
+Select a candidate or press *Enter* to commit text.
