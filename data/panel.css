@@ -41,12 +41,14 @@ ol:not(.expanded) li:first-child {
 }
 
 ol:not(.expanded) li:first-child:before {
-  content: '↓ ';
+  content: '↓';
+  padding-right: 0.5em;
   opacity: 0.5;
 }
 
 ol:not(.expanded) li:first-child:after {
-  content: ' ↵';
+  content: '↵';
+  padding-left: 0.5em;
   opacity: 0.5;
 }
 
@@ -54,8 +56,14 @@ ol:not(.expanded) li:not(:first-child) {
   display: none;
 }
 
+ol.expanded {
+  padding-left: 1.5em;
+}
+
 ol.expanded:before {
-  content: '↔ ';
+  content: '↔';
+  padding-right: 0.5em;
+  margin-left: -1.5em;
   opacity: 0.5;
   display: block;
   float: left;
