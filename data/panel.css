@@ -25,9 +25,16 @@ ol {
   border: #d0d0d0;
   font-size: 20px;
   line-height: 24px;
-  height: 24px;
   background-color: rgba(255, 255, 255, 0.4);
 }
+
+/* classic clearfix */
+ol::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
 ol:not(.expanded) li:first-child {
   display: block;
   list-style: none;

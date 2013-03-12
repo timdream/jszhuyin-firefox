@@ -79,6 +79,11 @@ var IMEDisplay = {
     CandidatesDisplay.setSelectionMode(mode);
   },
 
+  updateHeight: function id_updateHeight() {
+    this.sendMessage(
+      'dimensionchange', { height: document.documentElement.offsetHeight });
+  },
+
   handleEvent: function id_handleEvent(evt) {
     switch (evt.type) {
       case 'message':
@@ -114,6 +119,8 @@ var IMEDisplay = {
         CandidatesDisplay.setCandidatePage(msg.data);
         break;
     }
+
+    this.updateHeight();
   },
 
   sendMessage: function id_sendMessage(name, data) {
