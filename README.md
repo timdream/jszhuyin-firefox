@@ -1,26 +1,27 @@
-# JSZhuyin IME for Firefox
+# JS 注音輸入法 Firefox 附加元件
 
-An offine Smart Zhuyin IME add-on for Firefox.
-Built on top of [JSZhuyin](https://github.com/timdream/jszhuyin) and [add-on SDK](https://addons.mozilla.org/en-US/developers/builder).
+*[English](./README.en.md)*
 
-## License
+可離線使用的自動選字注音輸入法 Firefox 附加元件，使用 [JS 注音](https://github.com/timdream/jszhuyin) 與 [add-on SDK](https://addons.mozilla.org/en-US/developers/builder) 製作。
+
+## 授權
 
 MIT License
 
-## Build
+## 編譯
 
-[Install add-on SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html), with command-line `cfx` tool. Run the following command:
+[安裝 add-on SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html)，取得 `cfx` 命令列工具。執行以下指令：
 
-    git submodule init && git submodule update # Pull JSZhuyin repo into submodule
-    make -C data/jszhuyin data # Pull JSZhuyin data from McBopomofo
-    cfx xpi # Pack XPI
+    git submodule init && git submodule update # 下載 JSZhuyin 檔案為 submodule
+    make -C data/jszhuyin data # 從 McBopomofo 下載 JS 注音資料檔
+    cfx xpi # 包裹 XPI
 
-`jszhuyin-ime.xpi` will be available at the root of the repository.
+`jszhuyin-ime.xpi` 附加元件安裝檔會出現在目錄中。
 
-Refer to [add-on SDK documentation](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/getting-started-with-cfx.html) on more usage of `cfx` tool, such as `cfx run`.
+請參考 [add-on SDK 文件](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/getting-started-with-cfx.html) 了解更多的 `cfx` 命令用途，例如 `cfx run`。
 
-## Usage
+## 使用方法
 
-Press **Ctrl+Alt+1** (**Command+Option+1** on Mac) to enter IME mode, press again to stop.
-Type Zhuyin symbols to start composing Chinese characters, navigate through candidates with arrow keys.
-Select a candidate or press *Enter* to commit text.
+按 **Ctrl+Alt+1**（Mac 為 **Command+Option+1**） 啟動輸入法，再按一次關閉。
+輸入注音符號開始組字，用方向鍵選擇候選字。
+選擇候選字或按 *Enter* 以輸入文字。
