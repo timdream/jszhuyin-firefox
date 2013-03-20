@@ -7,5 +7,5 @@
     "fullName": "JSZhuyin IME for Firefox",
     "license": "MIT License (https://github.com/timdream/jszhuyin-firefox/blob/master/LICENSE)",
     "id": "jszhuyin-firefox-jetpack@timdream.org",
-    "description": "An offine web-based Zhuyin IME for Firefox."
+    "description": "An offline web-based Zhuyin IME for Firefox."
 }
