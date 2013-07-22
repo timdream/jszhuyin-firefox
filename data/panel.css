@@ -11,14 +11,6 @@ body:not(.candidateselectionmode) > ol {
   opacity: 0.6;
 }
 
-p {
-  margin: 10px 10px 0 10px;
-  font-size: 15px;
-  line-height: 18px;
-  height: 18px;
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
 ol {
   padding: 0;
   margin: 10px;
