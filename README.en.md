@@ -12,10 +12,11 @@ MIT License
 [Install add-on SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html), with command-line `cfx` tool. Run the following command:
 
     git submodule init && git submodule update # Pull JSZhuyin repo into submodule
+    cd data/jszhuyin && npm install && cd ../../ # Download dev dependencies for JSZhuyin
     make -C data/jszhuyin data # Pull JSZhuyin data from McBopomofo
     cfx xpi # Pack XPI
 
-`jszhuyin-ime.xpi` will be available at the root of the repository.
+`jszhuyin-firefox.xpi` will be available at the root of the repository.
 
 Refer to [add-on SDK documentation](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/getting-started-with-cfx.html) on more usage of `cfx` tool, such as `cfx run`.
 

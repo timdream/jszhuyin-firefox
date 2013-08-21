@@ -13,10 +13,11 @@ MIT License
 [安裝 add-on SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html)，取得 `cfx` 命令列工具。執行以下指令：
 
     git submodule init && git submodule update # 下載 JSZhuyin 檔案為 submodule
+    cd data/jszhuyin && npm install && cd ../../ # 下載 JSZhuyin 的 dev dependency.
     make -C data/jszhuyin data # 從 McBopomofo 下載 JS 注音資料檔
     cfx xpi # 包裹 XPI
 
-`jszhuyin-ime.xpi` 附加元件安裝檔會出現在目錄中。
+`jszhuyin-firefox.xpi` 附加元件安裝檔會出現在目錄中。
 
 請參考 [add-on SDK 文件](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/getting-started-with-cfx.html) 了解更多的 `cfx` 命令用途，例如 `cfx run`。
 

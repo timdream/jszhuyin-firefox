@@ -11,7 +11,7 @@ var debug = false;
 // main scirpt -> content script -> page script
 self.on('message', function proxy_toPage(msg) {
   if (debug)
-    console.log('[proxy m->p]', msg.name);
+    console.log('[proxy m->p]', msg.name || msg.type);
 
   pageWindow.postMessage(msg, '*');
 });
@@ -23,7 +23,7 @@ pageWindow.addEventListener('message', function proxy_toMain(evt) {
     return; // drop the message sent by ourselves
 
   if (debug)
-    console.log('[proxy p->m]', msg.name);
+    console.log('[proxy p->m]', msg.name || msg.type);
 
   self.postMessage(msg);
 }, false);
