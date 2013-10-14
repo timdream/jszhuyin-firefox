@@ -55,13 +55,8 @@ var CandidatesDisplay = {
 var IMEDisplay = {
   candidateSelectionMode: false,
 
-  pendingSymbolsElement: null,
-
   init: function id_init() {
     CandidatesDisplay.init();
-
-    this.pendingSymbolsElement =
-      document.getElementById('pending_symbols');
 
     // register message event
     window.addEventListener('message', this, true);
@@ -98,13 +93,8 @@ var IMEDisplay = {
 
     switch (msg.name) {
       case 'reset':
-        this.pendingSymbolsElement.textContent = '';
         CandidatesDisplay.updateCandidates([]);
         this.setCandidateSelectionMode(false);
-        break;
-
-      case 'pendingsymbols':
-        this.pendingSymbolsElement.textContent = msg.data;
         break;
 
       case 'candidates':
