@@ -52,18 +52,18 @@ CandidatesDisplay.prototype = {
   }
 };
 
-var IMEDisplay = {
-  candidateSelectionMode: false,
+var IMEDisplay = function IMEDisplay() {
+  this.candidateSelectionMode = false;
 
-  init: function id_init() {
-    this.candidatesDisplay = new CandidatesDisplay();
+  this.candidatesDisplay = new CandidatesDisplay();
 
-    // register message event
-    window.addEventListener('message', this, true);
+  // register message event
+  window.addEventListener('message', this, true);
 
-    this.sendMessage('init');
-  },
+  this.sendMessage('init');
+};
 
+IMEDisplay.prototype = {
   setCandidateSelectionMode: function id_setCandidateSelectionMode(mode) {
     if (mode) {
       document.body.classList.add('candidateselectionmode');
@@ -121,4 +121,4 @@ var IMEDisplay = {
   }
 };
 
-IMEDisplay.init();
+new IMEDisplay();
