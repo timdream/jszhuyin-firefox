@@ -2,17 +2,17 @@
 
 'use strict';
 
-var CandidatesDisplay = {
-  candidatesElement: null,
+var CandidatesDisplay = function CandidatesDisplay(candidatesElement) {
+  this.candidates = [];
+  this.candidatePage = 0;
 
-  candidates: [],
-  candidatePage: 0,
+  this.candidatesElement =
+    candidatesElement || document.getElementById('candidates');
 
-  init: function cd_init() {
-    this.candidatesElement = document.getElementById('candidates');
-    this.candidatesElement.addEventListener('click', this);
-  },
+  this.candidatesElement.addEventListener('click', this);
+};
 
+CandidatesDisplay.prototype = {
   handleEvent: function cd_handleEvent(evt) {
     var item = evt.target;
     IMEDisplay.sendMessage('select', [item.textContent, item.dataset.type]);
@@ -56,7 +56,7 @@ var IMEDisplay = {
   candidateSelectionMode: false,
 
   init: function id_init() {
-    CandidatesDisplay.init();
+    this.candidatesDisplay = new CandidatesDisplay();
 
     // register message event
     window.addEventListener('message', this, true);
@@ -71,7 +71,7 @@ var IMEDisplay = {
       document.body.classList.remove('candidateselectionmode');
     }
 
-    CandidatesDisplay.setSelectionMode(mode);
+    this.candidatesDisplay.setSelectionMode(mode);
   },
 
   updateHeight: function id_updateHeight() {
@@ -93,12 +93,12 @@ var IMEDisplay = {
 
     switch (msg.name) {
       case 'reset':
-        CandidatesDisplay.updateCandidates([]);
+        this.candidatesDisplay.updateCandidates([]);
         this.setCandidateSelectionMode(false);
         break;
 
       case 'candidates':
-        CandidatesDisplay.updateCandidates(msg.data);
+        this.candidatesDisplay.updateCandidates(msg.data);
         break;
 
       case 'candidateselectionmode':
@@ -106,7 +106,7 @@ var IMEDisplay = {
         break;
 
       case 'candidateselectionpage':
-        CandidatesDisplay.setCandidatePage(msg.data);
+        this.candidatesDisplay.setCandidatePage(msg.data);
         break;
     }
 
