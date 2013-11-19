@@ -25,23 +25,16 @@ exports['test TextHandler sendKeyEvent'] = function(assert, done) {
 
       for (var prop in expectedEvent) {
         if (prop[0] !== '_') {
-          if (expectedEvent[prop] === evt[prop]) {
-            assert.pass('Expected property ' + prop);
-          } else {
-            assert.fail('Expect event property ' + prop + ' to be "' +
-              expectedEvent[prop] + '" but received "' + evt[prop] + '".');
-          }
+          assert.strictEqual(
+            evt[prop], expectedEvent[prop],
+            'Unexpected event property ' + prop + '.');
 
           continue;
         }
 
-        if (expectedEvent[prop] === el[prop.substr(1)]) {
-          assert.pass('Expected element property ' + prop.substr(1));
-        } else {
-          assert.fail('Expect element property ' + prop.substr(1) +
-            ' to be "' + expectedEvent[prop] + '" but received "' +
-            el[prop.substr(1)] + '".');
-        }
+        assert.strictEqual(
+          el[prop.substr(1)], expectedEvent[prop],
+          'Unexpected element property ' + prop.substr(1) + '.');
       }
 
       if (expectedEvents.length === 0) {
@@ -78,6 +71,7 @@ exports['test TextHandler sendCompositionEvent'] = function(assert, done) {
       { type: 'compositionupdate', data: 'ㄊㄞˊ' },
       { type: 'input', _value: 'ㄊㄞˊ', _selectionStart: 3, _selectionEnd: 3 },
 
+      { type: 'compositionupdate', data: '臺' },
       { type: 'compositionend', data: '臺' },
       { type: 'input', _value: '臺', _selectionStart: 1, _selectionEnd: 1 }
     ];
@@ -90,24 +84,16 @@ exports['test TextHandler sendCompositionEvent'] = function(assert, done) {
 
       for (var prop in expectedEvent) {
         if (prop[0] !== '_') {
-          if (expectedEvent[prop] === evt[prop]) {
-            assert.pass('Expected event property ' + prop);
-          } else {
-            assert.fail('Expect event property ' + prop + ' to be "' +
-              expectedEvent[prop] + '" but received "' + evt[prop] + '".');
-          }
+          assert.strictEqual(
+            evt[prop], expectedEvent[prop],
+            'Unexpected event property ' + prop + '.');
 
           continue;
         }
 
-
-        if (expectedEvent[prop] === el[prop.substr(1)]) {
-          assert.pass('Expected element property ' + prop.substr(1));
-        } else {
-          assert.fail('Expect element property ' + prop.substr(1) +
-            ' to be "' + expectedEvent[prop] + '" but received "' +
-            el[prop.substr(1)] + '".');
-        }
+        assert.strictEqual(
+          el[prop.substr(1)], expectedEvent[prop],
+          'Unexpected element property ' + prop.substr(1) + '.');
       }
 
       if (expectedEvents.length === 0) {
