@@ -2,12 +2,12 @@
 
 'use strict';
 
-var CandidatesDisplay = function CandidatesDisplay(candidatesElement) {
+var CandidatesDisplay = function CandidatesDisplay(display) {
   this.candidates = [];
   this.candidatePage = 0;
+  this.display = display;
 
-  this.candidatesElement =
-    candidatesElement || document.getElementById('candidates');
+  this.candidatesElement = document.getElementById('candidates');
 
   this.candidatesElement.addEventListener('click', this);
 };
@@ -15,7 +15,7 @@ var CandidatesDisplay = function CandidatesDisplay(candidatesElement) {
 CandidatesDisplay.prototype = {
   handleEvent: function cd_handleEvent(evt) {
     var item = evt.target;
-    IMEDisplay.sendMessage('select', [item.textContent, item.dataset.type]);
+    this.display.sendMessage('select', [item.textContent, item.dataset.type]);
   },
 
   updateCandidates: function cd_updateCandidates(candidates) {
@@ -55,7 +55,7 @@ CandidatesDisplay.prototype = {
 var IMEDisplay = function IMEDisplay() {
   this.candidateSelectionMode = false;
 
-  this.candidatesDisplay = new CandidatesDisplay();
+  this.candidatesDisplay = new CandidatesDisplay(this);
 
   // register message event
   window.addEventListener('message', this, true);
